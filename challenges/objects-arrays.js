@@ -11,16 +11,17 @@ function Dino(attr) {
   this.weight = attr.weight;
   this.length = attr.length;
   this.period = attr.period;
+  this.roar = attr.roar;
 }
 // tyrannosaurus, carnivorous, 7000kg, 12m, Late Cretaceous
-let trex = {
+let trex = new Dino({
   name: "tyrannosaurus",
   diet: "carnivorous",
   weight: "7000kg",
   length: "12m",
   period: "Late Cretaceous",
   roar: () => `RAWERSRARARWERSARARARRRR!`
-};
+});
 // stegosaurus, herbivorous, 2000kg, 9m, Late Jurassic
 let steg = new Dino({
   name: "stegosaurus",
@@ -77,9 +78,7 @@ const graduates = [
 
 Once you have the new array created, sort the universities alphabetically and log the result. */
 const universities = [];
-graduates.forEach((grad) => {
-  universities.push(grad.university);
-});
+graduates.forEach((grad) => universities.push(grad.university));
 universities.sort();
   
 console.log(universities);
@@ -91,9 +90,8 @@ The resulting contact information strings should have a space between the first 
 
 Log the result of your new array. */
 const contactInfo = [];
-graduates.forEach((grad) => {
-  contactInfo.push(`${grad.first_name}, ${grad.email}`);
- });
+graduates.forEach((grad) =>  contactInfo.push(`${grad.first_name}, ${grad.email}`));
+
 console.log(contactInfo);
 
 /* Request 3: Find out how many universities have the string "Uni" included in their name. Create a new array called unisWithUni that contains them all. This will be an array of objects. Log the result. */
@@ -130,9 +128,7 @@ The zoos want to display both the scientific name and the animal name in front o
 
 */
 const displayNames = [];
-zooAnimals.forEach((animal) => {
-  displayNames.push(`Name: ${animal.animal_name}, Scientific: ${animal.scientific_name}`);
- });
+zooAnimals.forEach((animal) => displayNames.push(`Name: ${animal.animal_name}, Scientific: ${animal.scientific_name}`));
 console.log(displayNames);
 
 /* Request 2: .map()
@@ -161,8 +157,7 @@ console.log(lowPopulationAnimals);
 The zoos need to know their total animal population across the United States. Find the total population from all the zoos using the .reduce() method. Remember the reduce method takes two arguments: a callback (which itself takes two args), and an initial value for the count.
 
 */
-const populationTotal = zooAnimals.reduce((acc, cur) => {
-  return acc + cur.population;}, 0);
+const populationTotal = zooAnimals.reduce((acc, cur) =>  acc + cur.population, 0);
   
 console.log(populationTotal);
 
